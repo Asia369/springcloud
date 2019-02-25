@@ -1,0 +1,26 @@
+server:
+  port: 9527
+
+eureka: #客户端注册进Eureka服务列表
+  client:
+    service-url:
+     defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka/ #注册的地址必须要和eureka注册中心的地址一致
+  instance:
+   instance-id: zuul-9527.com
+   prefer-ip-address: true #显示IP地址
+spring:
+  application:
+    name: springcloud-zuul #曝光微服务的名称
+ 
+info:
+  app.name: spring-deptspringcloud #工程名称
+  company.name: www.sp.com #公司名称
+  build.artifactId: $project.artifactId$ #调动父工程build
+  build.version: $project.version$
+
+zuul:
+  prefix: /dir
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: microsespringcloud-dept
+    mydept.path: /mydept/**

@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- 这里表示明确了继承的体现，无意外版本就是父工程默认的版本 -->
+	<parent>
+		<groupId>spring.cloud.springcloud</groupId>
+		<artifactId>deptspringcloud</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<!-- 当前工程名称 -->
+	<artifactId>deptspringcloud-api</artifactId>
+
+	<dependencies>
+		<!-- 简化编写实体类的代码 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+	</dependencies>
+</project>

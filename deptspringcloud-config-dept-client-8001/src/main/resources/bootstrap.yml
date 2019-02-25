@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: chserivcecloud-config-dept-client
+      profile: test
+      label: master
+      uri: http://eureka6001.com:3344/

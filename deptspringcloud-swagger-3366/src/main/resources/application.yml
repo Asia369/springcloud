@@ -1,0 +1,6 @@
+server:
+  port: 3366
+
+spring:
+  application:
+    name: microsespringcloud-swagger #曝光微服务的名称

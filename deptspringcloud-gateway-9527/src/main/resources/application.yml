@@ -1,0 +1,31 @@
+server:
+  port: 9527
+
+eureka: #客户端注册进Eureka服务列表
+  client:
+    service-url:
+     defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka/ #注册的地址必须要和eureka注册中心的地址一致
+  instance:
+   instance-id: gateway-9527.com
+   prefer-ip-address: true #显示IP地址
+spring:
+  application:
+    name: springcloud-gateway #曝光微服务的名称
+  cloud:   
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: activity-route
+        uri: lb://microsespringcloud-dept
+        predicates:
+        - Path=/mydept/**
+        filters:
+        - StripPrefix=1 
+        
+info:
+  app.name: spring-deptspringcloud #工程名称
+  company.name: www.sp.com #公司名称
+  build.artifactId: $project.artifactId$ #调动父工程build
+  build.version: $project.version$

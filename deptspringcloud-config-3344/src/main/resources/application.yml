@@ -1,0 +1,11 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: microsespringcloud-config #曝光微服务的名称
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Asia369/springcloud-config.git

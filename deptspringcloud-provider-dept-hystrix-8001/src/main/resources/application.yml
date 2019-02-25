@@ -1,0 +1,37 @@
+server:
+  port: 8001
+
+eureka: #客户端注册进Eureka服务列表
+  client:
+    service-url:
+     defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka/ #注册的地址必须要和eureka注册中心的地址一致
+  instance:
+   instance-id: microsespringcloud-dept8001-hystrix
+   prefer-ip-address: true #显示IP地址
+spring:
+  application:
+    name: microsespringcloud-dept #曝光微服务的名称
+    
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #链接数据库的数据源的类型
+    driver-class-name: com.mysql.jdbc.Driver #mysql驱动包
+    url: jdbc:mysql://127.0.0.1:3306/cloud  #链接数据库名称
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 6 #连接池最小的链接数
+      initial-size: 6 #初始化连接数
+      max-idle: 6 #最大连接数
+      max-wait-millis: 200 #等待获取最大超时时间
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml #mybatis配置文件的加载
+  type-aliases-package: com.spring.springcloud.entity #加载所有实体类路径
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml #映射mapper所有的文件
+ 
+info:
+  app.name: spring-deptspringcloud #工程名称
+  company.name: www.sp.com #公司名称
+  build.artifactId: $project.artifactId$ #调动父工程build
+  build.version: $project.version$
