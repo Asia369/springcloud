@@ -23,6 +23,12 @@ spring:
         - Path=/mydept/**
         filters:
         - StripPrefix=1 
+      - id: activity2-route
+        uri: lb://microsespringcloud-dept2
+        predicates:
+        - Path=/mydept2/**
+        filters:
+        - StripPrefix=1 
         
 info:
   app.name: spring-deptspringcloud #工程名称
