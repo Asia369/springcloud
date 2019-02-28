@@ -172,5 +172,6 @@
 		<module>deptspringcloud-config-eureka-client-6001</module>
 		<module>deptspringcloud-config-dept-client-8001</module>
 		<module>deptspringcloud-swagger-3366</module>
+		<module>deptspringcloud-config-local-3344</module>
 	</modules>
 </project>

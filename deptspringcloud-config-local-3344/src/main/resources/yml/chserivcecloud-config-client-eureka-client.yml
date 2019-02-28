@@ -1,0 +1,41 @@
+---
+spring:
+  profiles:
+    active:
+    - dev
+
+---
+server:
+  port: 6001
+
+spring:
+  profiles: dev #开发模式
+  application:
+     name: chserivcecloud-config-client-eureka-client
+
+eureka:
+  instance:
+    hostname: eureka6001.com #eureka 的服务端实例名称
+  client:
+    register-with-eureka: false #表示自己不向注册中心注册自己
+    fetch-registry: false #表示自己就是注册中心，就维护服务实例的，不需要进行检索服务
+    service-url:
+      defaultZone:  http://eureka6001.com:6001/eureka/     #设置Eureka server 互交的地址，查询服务注册中心都需要这个地址
+
+---
+server:
+  port: 6001
+
+spring:
+  profiles: test #测试模式
+  application:
+     name: chserivcecloud-config-client-eureka-client
+
+eureka:
+  instance:
+    hostname: eureka6001.com #eureka 的服务端实例名称
+  client:
+    register-with-eureka: false #表示自己不向注册中心注册自己
+    fetch-registry: false #表示自己就是注册中心，就维护服务实例的，不需要进行检索服务
+    service-url:
+      defaultZone:  http://eureka6001.com:6001/eureka/     #设置Eureka server 互交的地址，查询服务注册中心都需要这个地址

@@ -1,0 +1,38 @@
+---
+spring:
+  profiles:
+    active:
+    - dev
+
+---
+server:
+  port: 8201
+
+spring:
+  profiles: dev #开发模式
+  application:
+     name: chserivcecloud-config-client
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://eureka6001.com:6001/eureka
+---
+spring:
+  profiles:
+    active:
+    - test
+
+---
+server:
+  port: 8202
+
+spring:
+  profiles: test #测试模式
+  application:
+     name: chserivcecloud-config-client
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://eureka6001.com:6001/eureka

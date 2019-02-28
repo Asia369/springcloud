@@ -1,0 +1,13 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: microsespringcloud-config #曝光微服务的名称
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:yml/ # 搜索src/main/resource 下的properties文件夹下的文件
+  profiles:
+    active: native  # 配置使用本地储存
